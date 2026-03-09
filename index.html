@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio de πlar Monge Ureña – Software Engineer, Backend & Full Stack Developer" />
+  <title>πlar Monge Ureña | Software Engineer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+
+<div id="loader">
+  <div class="loader-pi">π</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+
+<canvas id="particle-canvas"></canvas>
+
+
+<div id="scroll-progress"></div>
+
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" data-scroll="hero">π<span>.</span></a>
+
+    <div class="nav-links">
+      <a href="#hero"           data-scroll="hero">Home</a>
+      <a href="#about"          data-scroll="about">About</a>
+      <a href="#skills"         data-scroll="skills">Skills</a>
+      <a href="#experience"     data-scroll="experience">Experience</a>
+      <a href="#education"      data-scroll="education">Education</a>
+      <a href="#projects"       data-scroll="projects">Projects</a>
+      <a href="#certifications" data-scroll="certifications">Certifications</a>
+      <a href="#contact"        data-scroll="contact">Contact</a>
+
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <svg id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="icon-sun" style="display:none" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1"  x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1"  y1="12" x2="3"  y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+
+    
+    <div id="mobile-controls" style="display:none;align-items:center;gap:0.75rem;">
+      <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle theme">
+        <svg id="icon-moon-m" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="icon-sun-m" style="display:none" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+      <button id="hamburger" class="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+<div id="mobile-nav" class="mobile-nav">
+  <a href="#hero"           data-scroll="hero">Home</a>
+  <a href="#about"          data-scroll="about">About</a>
+  <a href="#skills"         data-scroll="skills">Skills</a>
+  <a href="#experience"     data-scroll="experience">Experience</a>
+  <a href="#education"      data-scroll="education">Education</a>
+  <a href="#projects"       data-scroll="projects">Projects</a>
+  <a href="#certifications" data-scroll="certifications">Certifications</a>
+  <a href="#contact"        data-scroll="contact">Contact</a>
+</div>
+
+<main>
+
+  
+  <section id="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div style="margin-bottom:0.5rem;opacity:0;animation:fadeUp 0.6s ease forwards 0.1s;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--green);letter-spacing:0.1em;">Hello, world! 👋</span>
+        </div>
+        <h1 class="hero-name">
+          <span class="pi-symbol">π</span>lar Monge Ureña
+        </h1>
+        <p class="hero-role">
+          <span id="typing-text"></span><span class="typing-cursor"></span>
+        </p>
+        <p class="hero-bio">
+          Building scalable applications and solving real-world problems with technology.
+          Passionate about clean code, elegant architectures, and continuous learning.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary" onclick="scrollToSection('projects')">
+            View Projects
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <button class="btn-secondary" onclick="handleDownloadCV()">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrapper">
+        <div class="hero-photo-frame">
+          <div class="hero-photo-box">
+          <img src="assets/profile.jpg" alt="Pilar Monge Ureña - Software Engineer" class="hero-photo-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  
+  <section id="counters" class="alt-bg">
+    <div class="counters-grid">
+      <div class="card counter-card reveal">
+        <span class="counter-number" data-target="6" data-suffix="+">0</span>
+        <span class="counter-label">Projects Built</span>
+      </div>
+      <div class="card counter-card reveal">
+        <span class="counter-number" data-target="15" data-suffix="+">0</span>
+        <span class="counter-label">Skills Learned</span>
+      </div>
+      <div class="card counter-card reveal">
+        <span class="counter-number" data-target="3" data-suffix="">0</span>
+        <span class="counter-label">Years Experience</span>
+      </div>
+      <div class="card counter-card reveal">
+        <span class="counter-number" data-target="7" data-suffix="+">0</span>
+        <span class="counter-label">Certifications</span>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="about">
+    <div class="section-inner">
+      <h2 class="section-title reveal">About <span class="accent">Me</span></h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            Software Engineer specialized in backend and full stack development — and always signing my work
+            as <strong class="pi-symbol">π</strong>lar. Strong analytical skills and experience with databases
+            and business processes. Passionate about building scalable applications and solving complex problems
+            with modern technologies.
+          </p>
+          <p>
+            My journey combines technical expertise with practical business experience, letting me understand
+            both the technological and operational sides of software development. I focus on solutions that
+            are technically sound and aligned with real-world needs.
+          </p>
+          <p>
+            I thrive in collaborative environments and believe in continuous learning, always staying
+            updated with the latest technologies and best practices.
+          </p>
+        </div>
+        <div class="about-cards">
+          <div class="card about-card reveal">
+            <div class="about-card-icon">
+              <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Clean Code</h3>
+            <p>Writing maintainable, efficient, and well-documented code that stands the test of time.</p>
+          </div>
+          <div class="card about-card reveal">
+            <div class="about-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>Problem Solving</h3>
+            <p>Leveraging analytical thinking and modern technologies to create innovative solutions.</p>
+          </div>
+          <div class="card about-card reveal">
+            <div class="about-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Collaboration</h3>
+            <p>Working effectively in teams, sharing knowledge, and contributing to a positive culture.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="why-me" class="alt-bg">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Why Hire <span class="accent">π</span>lar?</h2>
+      <div class="why-grid">
+        <div class="card why-card reveal">
+          <span class="why-emoji">🧠</span>
+          <h3>Fast Learner</h3>
+          <p>I pick up new technologies and frameworks quickly, adapting to any tech stack your team uses.</p>
+        </div>
+        <div class="card why-card reveal">
+          <span class="why-emoji">🔧</span>
+          <h3>Backend Focus</h3>
+          <p>Deep experience designing scalable APIs, database schemas, and server-side architectures.</p>
+        </div>
+        <div class="card why-card reveal">
+          <span class="why-emoji">🎯</span>
+          <h3>Business-Aware</h3>
+          <p>My accounting background means I build software that actually serves real business goals.</p>
+        </div>
+        <div class="card why-card reveal">
+          <span class="why-emoji">🌐</span>
+          <h3>Bilingual</h3>
+          <p>Fluent in Spanish (native) and English (advanced), ready for international teams.</p>
+        </div>
+        <div class="card why-card reveal">
+          <span class="why-emoji">🤝</span>
+          <h3>Team Player</h3>
+          <p>Collaborative mindset with agile experience — I make teams better, not just code better.</p>
+        </div>
+        <div class="card why-card reveal">
+          <span class="why-emoji">🚀</span>
+          <h3>Driven</h3>
+          <p>Pursuing both a Bachelor's and Master's simultaneously — I don't do things halfway.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="skills">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Technical <span class="accent">Skills</span></h2>
+      <div class="skills-grid">
+        <div class="card reveal">
+          <p class="skill-category-title">Programming Languages</p>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">JavaScript</span><span class="skill-pct">90%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Java</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">SQL</span><span class="skill-pct">88%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div></div>
+        </div>
+        <div class="card reveal">
+          <p class="skill-category-title">Web Development</p>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">React</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Node.js</span><span class="skill-pct">87%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="87"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">HTML & CSS</span><span class="skill-pct">92%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">REST APIs</span><span class="skill-pct">90%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div></div>
+        </div>
+        <div class="card reveal">
+          <p class="skill-category-title">Databases</p>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">PostgreSQL</span><span class="skill-pct">88%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">MongoDB</span><span class="skill-pct">82%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="82"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">MySQL</span><span class="skill-pct">85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div></div>
+        </div>
+        <div class="card reveal">
+          <p class="skill-category-title">Tools & Cloud</p>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Git</span><span class="skill-pct">90%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Docker</span><span class="skill-pct">78%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="78"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">AWS</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Azure</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="experience" class="alt-bg">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Work <span class="accent">Experience</span></h2>
+      <div class="timeline">
+
+        <div class="timeline-item reveal"><div class="timeline-dot"></div>
+          <div class="card">
+            <div class="exp-header">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              <div><div class="exp-title">Full Stack Software Engineer</div><div class="exp-company">Tech Solutions Costa Rica</div>
+                <div class="exp-period">2029 – Present <span class="badge-projected">Projected</span></div></div>
+            </div>
+            <p class="exp-description">Developing full stack web applications using modern JavaScript technologies with a focus on backend architectures.</p>
+            <ul class="exp-achievements">
+              <li>Developed full stack web applications using modern JavaScript technologies</li>
+              <li>Designed and maintained backend architectures focused on scalability</li>
+              <li>Integrated databases, APIs, and cloud services into complete business solutions</li>
+              <li>Led technical decisions for system improvements and application performance</li>
+              <li>Collaborated with cross-functional teams in agile development environments</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal"><div class="timeline-dot"></div>
+          <div class="card">
+            <div class="exp-header">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              <div><div class="exp-title">Backend Developer</div><div class="exp-company">CloudBridge Technologies</div>
+                <div class="exp-period">2027 – 2029 <span class="badge-projected">Projected</span></div></div>
+            </div>
+            <p class="exp-description">Built scalable backend services for business web applications with focus on security and performance.</p>
+            <ul class="exp-achievements">
+              <li>Built scalable backend services for business web applications</li>
+              <li>Designed secure API endpoints and implemented authentication features</li>
+              <li>Optimized SQL queries and database performance for high-traffic systems</li>
+              <li>Worked with Docker and CI/CD pipelines to streamline deployment</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal"><div class="timeline-dot"></div>
+          <div class="card">
+            <div class="exp-header">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              <div><div class="exp-title">Junior Backend Developer</div><div class="exp-company">NovaTech Solutions</div>
+                <div class="exp-period">2026 – 2027 <span class="badge-projected">Projected</span></div></div>
+            </div>
+            <p class="exp-description">Developed backend features and supported database design and maintenance.</p>
+            <ul class="exp-achievements">
+              <li>Developed backend features using Node.js, Express, and REST APIs</li>
+              <li>Assisted in database design using PostgreSQL and MongoDB</li>
+              <li>Fixed bugs, improved API performance, and supported testing</li>
+              <li>Participated in code reviews and technical documentation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal"><div class="timeline-dot"></div>
+          <div class="card">
+            <div class="exp-header">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              <div><div class="exp-title">Commercial Administrative Assistant</div><div class="exp-company">Credecoop R.L</div>
+                <div class="exp-period">May 2023 – August 2023</div></div>
+            </div>
+            <p class="exp-description">Supported commercial and sales department with administrative tasks and customer documentation.</p>
+            <ul class="exp-achievements">
+              <li>Supported the commercial and sales department with administrative tasks</li>
+              <li>Managed customer documentation and internal records</li>
+              <li>Organized reports and maintained accurate business information</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal"><div class="timeline-dot"></div>
+          <div class="card">
+            <div class="exp-header">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              <div><div class="exp-title">Accounting Assistant</div><div class="exp-company">Independent Accounting Office</div>
+                <div class="exp-period">2020 – 2022</div></div>
+            </div>
+            <p class="exp-description">Assisted with accounting processes and financial documentation management.</p>
+            <ul class="exp-achievements">
+              <li>Assisted with accounting processes and financial documentation</li>
+              <li>Organized invoices, records, and supporting documents</li>
+              <li>Supported administrative control and document verification</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="education">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Education &amp; <span class="accent">Learning</span></h2>
+      <div class="edu-list">
+        <div class="card edu-card reveal">
+          <div class="edu-header">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <div style="flex:1">
+              <div class="edu-title-row">
+                <h3 class="edu-degree">Master's Degree in Software Engineering</h3>
+                <span class="badge-projected">Projected</span>
+              </div>
+              <p class="edu-school">Universidad Nacional de Costa Rica</p>
+              <p class="edu-status">Expected Completion: 2028</p>
+              <p class="edu-desc">Advanced studies in software architecture, distributed systems, and modern development methodologies. Specializing in scalable system design and enterprise-level applications.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card edu-card reveal">
+          <div class="edu-header">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <div style="flex:1">
+              <h3 class="edu-degree">Bachelor's Degree in Software Engineering</h3>
+              <p class="edu-school">Universidad Nacional de Costa Rica</p>
+              <p class="edu-status">In Progress</p>
+              <p class="edu-desc">Comprehensive studies in software development, algorithms, data structures, database systems, and modern programming paradigms. Focus on backend development and system design.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card edu-card reveal">
+          <div class="edu-header">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <div style="flex:1">
+              <h3 class="edu-degree">Technical Degree in Accounting</h3>
+              <p class="edu-school">Colegio Técnico Profesional San Isidro Pérez Zeledón</p>
+              <p class="edu-status">Completed</p>
+              <p class="edu-desc">Foundation in accounting principles, financial management, and business processes. Provides valuable insight into business operations and financial systems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="projects" class="alt-bg">
+    <div class="section-inner" style="max-width:1200px;">
+      <h2 class="section-title reveal">Featured <span class="accent">Projects</span></h2>
+      <p class="projects-intro reveal">A collection of projects showcasing my expertise in backend development, full-stack applications, and cloud-based solutions.</p>
+
+      
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="data">Data</button>
+        <button class="filter-btn" data-filter="cloud">Cloud</button>
+        <button class="filter-btn" data-filter="api">API</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <div class="project-card reveal" data-category="web api">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1692607431186-e8d7837ad65b?w=600&q=80" alt="Task Management System" loading="lazy"/>
+            <div class="project-img-overlay"></div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Task Management System</h3>
+            <p class="project-desc">A comprehensive web application for managing internal tasks and team workflows with real-time status updates.</p>
+            <div class="project-tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">React</span><span class="tag">REST API</span></div>
+            <div class="project-links">
+              <a href="https://github.com/Pilar-Monge" target="_blank" rel="noopener noreferrer" class="project-link code">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>Code
+              </a>
+              <button class="project-link demo" onclick="openModal(0)">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="cloud web">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1636352656650-4baea3fd60e4?w=600&q=80" alt="Cloud Inventory System" loading="lazy"/>
+            <div class="project-img-overlay"></div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Cloud Inventory System</h3>
+            <p class="project-desc">Scalable inventory management deployed on cloud infrastructure with real-time tracking and automated stock alerts.</p>
+            <div class="project-tags"><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div>
+            <div class="project-links">
+              <a href="https://github.com/Pilar-Monge" target="_blank" rel="noopener noreferrer" class="project-link code">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>Code
+              </a>
+              <button class="project-link demo" onclick="openModal(1)">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="data web">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Data Analytics Dashboard" loading="lazy"/>
+            <div class="project-img-overlay"></div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Data Analytics Dashboard</h3>
+            <p class="project-desc">Interactive dashboard for analyzing business data with dynamic charts, customizable reports, and data visualization.</p>
+            <div class="project-tags"><span class="tag">React</span><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Chart.js</span><span class="tag">REST API</span></div>
+            <div class="project-links">
+              <a href="https://github.com/Pilar-Monge" target="_blank" rel="noopener noreferrer" class="project-link code">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>Code
+              </a>
+              <button class="project-link demo" onclick="openModal(2)">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="web cloud">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1764231467896-73f0ef4438aa?w=600&q=80" alt="Expense Tracking" loading="lazy"/>
+            <div class="project-img-overlay"></div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Expense Tracking Platform</h3>
+            <p class="project-desc">Full-stack application for tracking personal and business expenses with budget management and financial reporting.</p>
+            <div class="project-tags"><span class="tag">Node.js</span><span class="tag">React</span><span class="tag">MongoDB</span><span class="tag">JWT</span><span class="tag">Azure</span></div>
+            <div class="project-links">
+              <a href="https://github.com/Pilar-Monge" target="_blank" rel="noopener noreferrer" class="project-link code">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>Code
+              </a>
+              <button class="project-link demo" onclick="openModal(3)">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="web api">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1620221905485-86b2e9e1b594?w=600&q=80" alt="Employee Management" loading="lazy"/>
+            <div class="project-img-overlay"></div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Employee Management System</h3>
+            <p class="project-desc">Comprehensive HR platform for tracking employee data, attendance, performance reviews, and payroll.</p>
+            <div class="project-tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span><span class="tag">React</span><span class="tag">REST API</span></div>
+            <div class="project-links">
+              <a href="https://github.com/Pilar-Monge" target="_blank" rel="noopener noreferrer" class="project-link code">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>Code
+              </a>
+              <button class="project-link demo" onclick="openModal(4)">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="api">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1564865878688-9a244444042a?w=600&q=80" alt="REST API" loading="lazy"/>
+            <div class="project-img-overlay"></div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">REST API for Business Ops</h3>
+            <p class="project-desc">Robust RESTful API with authentication, rate limiting, comprehensive error handling, and Swagger documentation.</p>
+            <div class="project-tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span><span class="tag">Swagger</span></div>
+            <div class="project-links">
+              <a href="https://github.com/Pilar-Monge" target="_blank" rel="noopener noreferrer" class="project-link code">
+                <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>Code
+              </a>
+              <button class="project-link demo" onclick="openModal(5)">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="certifications">
+    <div class="section-inner">
+      <h2 class="section-title reveal"><span class="accent">Certifications</span> &amp; Languages</h2>
+      <div class="certs-grid">
+        <div class="certs-column reveal">
+          <h3><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>Technical Certifications</h3>
+          <div class="cert-list">
+            <div class="cert-item"><div><p class="cert-name">AWS Cloud Practitioner</p><p class="cert-issuer">Amazon Web Services</p></div><div class="cert-meta"><span class="cert-year">2027</span><span class="badge-projected">Projected</span></div></div>
+            <div class="cert-item"><div><p class="cert-name">Microsoft Azure Fundamentals</p><p class="cert-issuer">Microsoft</p></div><div class="cert-meta"><span class="cert-year">2027</span><span class="badge-projected">Projected</span></div></div>
+            <div class="cert-item"><div><p class="cert-name">Backend Development Certification</p><p class="cert-issuer">Professional Development</p></div><div class="cert-meta"><span class="cert-year">2026</span><span class="badge-projected">Projected</span></div></div>
+            <div class="cert-item"><div><p class="cert-name">Docker Foundations</p><p class="cert-issuer">Docker Inc</p></div><div class="cert-meta"><span class="cert-year">2026</span><span class="badge-projected">Projected</span></div></div>
+            <div class="cert-item"><div><p class="cert-name">Git and GitHub Professional Certificate</p><p class="cert-issuer">GitHub</p></div><div class="cert-meta"><span class="cert-year">2025</span><span class="badge-projected">Projected</span></div></div>
+            <div class="cert-item"><div><p class="cert-name">Scrum Fundamentals Certification</p><p class="cert-issuer">Scrum Alliance</p></div><div class="cert-meta"><span class="cert-year">2027</span><span class="badge-projected">Projected</span></div></div>
+          </div>
+        </div>
+        <div class="certs-column reveal">
+          <h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Language Proficiency</h3>
+          <div class="cert-list">
+            <div class="cert-item"><div><p class="cert-name">English Certification – Advanced Level</p><p class="cert-issuer">CIUNA – Universidad Nacional, Brunca Campus</p></div><div class="cert-meta"><span class="cert-year">2024</span></div></div>
+            <div class="cert-item"><div><p class="cert-name">Spanish – Native Speaker</p><p class="cert-issuer">Native Language</p></div></div>
+            <div class="cert-item" style="flex-direction:column;gap:0.5rem;">
+              <p class="cert-name">Communication Skills</p>
+              <p class="cert-issuer" style="font-size:0.85rem;line-height:1.5;">Fluent in technical documentation in both English and Spanish. Experienced collaborating with international teams and presenting technical concepts clearly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="contact" class="alt-bg">
+    <div class="section-inner">
+      <h2 class="section-title reveal">Let's <span class="accent">Connect</span></h2>
+      <p class="contact-intro reveal">Always interested in new projects and opportunities. Drop me a message!</p>
+
+      <div class="contact-grid">
+        
+        <div class="contact-info reveal">
+          <h3>// Get in touch</h3>
+          <a href="mailto:pilarmongeu@gmail.com" class="contact-detail">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            pilarmongeu@gmail.com
+          </a>
+          <a href="http://www.linkedin.com/in/pilar-monge-4b693b3b4" target="_blank" rel="noopener noreferrer" class="contact-detail">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/pilar-monge
+          </a>
+          <a href="https://github.com/Pilar-Monge" target="_blank" rel="noopener noreferrer" class="contact-detail">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            github.com/Pilar-Monge
+          </a>
+          <div class="contact-detail" style="cursor:default;">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            San José, Costa Rica
+          </div>
+        </div>
+
+        
+        <div class="reveal">
+          <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="cf-subject">Subject</label>
+              <input type="text" id="cf-subject" placeholder="Project idea, opportunity..." />
+            </div>
+            <div class="form-group">
+              <label for="cf-msg">Message</label>
+              <textarea id="cf-msg" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+              <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+          </form>
+          <div class="form-success" id="form-success">
+            ✅ Message sent! I'll get back to you soon, <span class="pi-symbol">π</span>-style. 🚀
+          </div>
+        </div>
+      </div>
+
+      <div class="back-to-top-wrapper reveal" style="margin-top:3rem;">
+        <button id="contact-top-btn" class="back-to-top-btn">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+          Back to Top
+        </button>
+      </div>
+
+      <footer class="footer">
+        <p>© 2026 <span class="pi-symbol">π</span>lar Monge Ureña. All rights reserved.</p>
+        <p>Built using HTML, CSS &amp; JavaScript</p>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+
+<button id="floating-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+
+<div id="project-modal">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-img"><img id="modal-img" src="" alt="" /></div>
+    <div class="modal-content">
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-company" id="modal-tech"></p>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-tags project-tags" id="modal-tags"></div>
+      <div class="modal-links project-links">
+        <a id="modal-github" href="https://github.com/Pilar-Monge" target="_blank" rel="noopener noreferrer" class="project-link code">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>View on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
