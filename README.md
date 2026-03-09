@@ -180,12 +180,17 @@ Three key differentiators identified from the job market analysis:
 ```
 Professional_Portfolio_Website/
 │
-├── index.html              # Main HTML file
-├── styles.css              # Stylesheet
-├── main.js                 # JavaScript functionality
-├── assets/
-│   ├── profile.jpg         # Profile photo
-│   └── images/             # Additional image resources
+├── portfolio/              # Main project folder
+│   ├── index.html          # Main HTML file
+│   ├── css/
+│   │   └── styles.css      # Stylesheet
+│   ├── js/
+│   │   └── main.js         # JavaScript functionality
+│   └── assets/
+│       ├── profile.jpg     # Profile photo
+│       └── images/         # Additional image resources
+│
+├── .gitignore              # Git ignore rules
 └── README.md               # Project documentation
 ```
 
