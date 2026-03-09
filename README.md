@@ -167,7 +167,7 @@ Three key differentiators identified from the job market analysis:
 
 ### 🎨 Figma Design
 **Prototype:** [View Figma Design](#)  
-*Link *
+*https://www.figma.com/make/cZStX8BYYdTP8rhKa70d8c/Modern-Developer-Portfolio-Website?t=CBt257R5udPzuzMN-1*
 
 ### 🚀 Live Website
 **GitHub Pages:** [View Live Site](#)  
@@ -178,13 +178,14 @@ Three key differentiators identified from the job market analysis:
 ## 📂 Repository Structure
 
 ```
-portfolio-project/
+Professional_Portfolio_Website/
 │
 ├── index.html              # Main HTML file
-├── css/
-│   └── styles.css          # Stylesheet
+├── styles.css              # Stylesheet
+├── main.js                 # JavaScript functionality
 ├── assets/
-│   └── images/             # Image resources
+│   ├── profile.jpg         # Profile photo
+│   └── images/             # Additional image resources
 └── README.md               # Project documentation
 ```
 
