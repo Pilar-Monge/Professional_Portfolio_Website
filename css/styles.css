@@ -1229,6 +1229,17 @@ body.light .project-link.code {
   
   .hero-photo-wrapper {
     padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-text {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero-photo-wrapper {
+    position: relative;
+    z-index: 1;
   }
 }
 
