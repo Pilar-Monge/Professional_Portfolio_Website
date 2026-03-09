@@ -412,7 +412,12 @@ function handleFormSubmit(e) {
 }
 
 function handleDownloadCV() {
-  alert('Conecta tu archivo CV aquí — reemplaza esta función en js/main.js con:\nwindow.open("assets/cv.pdf", "_blank")');
+  const link = document.createElement('a');
+  link.href = 'assets/Curriculum Maria Pilar Monge Ure\u00f1a.pdf';
+  link.download = 'CV_Maria_Pilar_Monge_Urena.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 const contactTopBtn = document.getElementById('contact-top-btn');

@@ -1211,6 +1211,17 @@ body.light .project-link.code {
     width: 240px;
     height: 240px;
   }
+  
+  .hero-photo-box {
+    width: 260px;
+    height: 330px;
+    margin: 0 auto;
+  }
+  
+  .hero-photo-img {
+    height: calc(100% + 60px);
+    margin-top: -60px;
+  }
 }
 
 
@@ -1737,6 +1748,29 @@ body.cursor-hover #cursor-ring {
 
 @media (max-width: 768px) {
   .contact-grid { grid-template-columns: 1fr; }
+  
+  .modal-box {
+    max-width: 90%;
+    margin: 1rem;
+  }
+  
+  .modal-content {
+    padding: 1.25rem;
+  }
+  
+  .modal-title {
+    font-size: 1.2rem;
+  }
+  
+  .modal-links {
+    flex-direction: column;
+  }
+  
+  .modal-links .btn-primary,
+  .modal-links .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 
