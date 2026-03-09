@@ -1,0 +1,27 @@
+# Portfolio Website - .gitignore
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary Files
+*.log
+*.tmp
+*.temp
+
+
+# Build files (if adding build tools later)
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
